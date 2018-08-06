@@ -30,32 +30,6 @@ async def change_status():
 async def on_ready():
     print ("Bot online.\n")
 
-@bot.event
-@commands.has_role("Tester")
-async def on_message(message):
-    await bot.process_commands(message)
-
-@bot.command()
-@commands.has_role("Tester")
-async def load(extension):
-    """Loads a certain category of commands"""
-    try:
-        bot.load_extension(extension)
-        print('{} loaded'.format(extension))
-        await bot.say('{} loaded'.format(extension))
-    except Exception as error:
-        print('Failed to load extension {}. [{}]'.format(extension, error))
-
-@bot.command()
-@commands.has_role("Tester")
-async def unload(extension):
-    """Unloads a certain category of commands"""
-    try:
-        bot.unload_extension(extension)
-        print('{} unloaded'.format(extension))
-        await bot.say('{} unloaded'.format(extension))
-    except Exception as error:
-        print('Failed to unload extension {}. [{}]'.format(extension, error))
 
 if __name__ == "__main__":
     for extension in startup_extensions:
@@ -65,4 +39,4 @@ if __name__ == "__main__":
                 print('Failed to load extension {}. [{}]'.format(extension, error))
 
     bot.loop.create_task(change_status())
-    bot.run(process.env.token)
+    bot.run(token)
