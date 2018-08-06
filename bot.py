@@ -8,7 +8,7 @@ from discord.ext.commands import Bot
 import asyncio
 from itertools import cycle
 import random
-import opus
+import os
 
 startup_extensions = ["Music"]
 
@@ -40,4 +40,4 @@ if __name__ == "__main__":
                 print('Failed to load extension {}. [{}]'.format(extension, error))
 
     bot.loop.create_task(change_status())
-    bot.run(process.env.token)
+    bot.run(os.getenv("token")
