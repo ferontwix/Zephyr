@@ -39,4 +39,4 @@ if __name__ == "__main__":
                 print('Failed to load extension {}. [{}]'.format(extension, error))
 
     bot.loop.create_task(change_status())
-    bot.run(token)
+    bot.run(process.env.token)
