@@ -1,2 +1,3 @@
 discord.py
-youtube
+youtube_dl
+asyncio
